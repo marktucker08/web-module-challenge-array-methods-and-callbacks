@@ -125,9 +125,18 @@ Use the higher-order function getWinnersByYear to do the following:
 💡 HINT: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
-    /* code here */
+function getWinnersByYear(arr, cbFinals, cbYears, cbWinners) {
+    const finalsArr = cbFinals(arr);
+    const yearsArr = cbYears(finalsArr, cbFinals);
+    const winnersArr = cbWinners(finalsArr, cbFinals);
+    const winnerByYear = [];
+    for (let i = 0; i < yearsArr.length; i ++) {
+        winnerByYear.push("In " + yearsArr[i] + ", " + winnersArr[i] + " won the world cup!");    
+    };
+    return winnerByYear;
 }
+
+console.log(getWinnersByYear(fifaData,getFinals,getYears,getWinners));
 
 
 
