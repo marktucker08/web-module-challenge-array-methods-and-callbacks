@@ -9,14 +9,51 @@ Practice accessing data by console.log-ing the following pieces of data note.
 
 //(a) Home Team name for 2014 world cup final
 
+const teams2014 = fifaData.filter((year) => {
+    return year.Year === 2014 && year.Stage === "Final";
+});
+
+const homeTeamFinal = teams2014.map((homeTeam) => {
+    return homeTeam['Home Team Name'];
+});
+
+console.log(homeTeamFinal);
+
 //(b) Away Team name for 2014 world cup final
+
+const awayTeamFinal = teams2014.map((awayTeam) => {
+    return awayTeam['Away Team Name'];
+});
+
+console.log(awayTeamFinal);
 
 //(c) Home Team goals for 2014 world cup final
 
+const homeTeamGoal = teams2014.map((homeTeam) => {
+    return homeTeam['Home Team Goals'];
+});
+
+console.log(homeTeamGoal);
+
 //(d) Away Team goals for 2014 world cup final
+
+const awayTeamGoal = teams2014.map((awayTeam) => {
+    return awayTeam['Away Team Goals'];
+});
+
+console.log(awayTeamGoal);
 
 //(e) Winner of 2014 world cup final */
 
+const winner2014 = teams2014.map((team) => {
+    if (team['Home Team Goals'] > team['Away Team Goals']) {
+        return team['Home Team Name'];
+    } else {
+        return team['Away Team Name'];
+    }
+});
+
+console.log(winner2014);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
